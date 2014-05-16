@@ -28,12 +28,19 @@ var generateSqwigitar = function(color, text){
   return svg;
 }
 
-app.get('/:id/:initials', function(req, res){
-  res.writeHead(200, {"Content-Type": "image/svg+xml"});
-  var color = palette[req.params.id % palette.length] 
-  var initials = req.params.initials.toUpperCase();
-  var svg = generateSqwigitar(color, initials)
-  res.end(svg);
+app.get('/avatar/:id/:initials', function(req, res){
+  var id = parseInt(req.params.id)
+  if(isNaN(id)){
+    res.status(400)
+    res.end('Bad request')
+  }else{
+    var color = palette[id % palette.length] 
+    var initials = req.params.initials.toUpperCase();
+    var svg = generateSqwigitar(color, initials.substring(0,2))
+
+    res.writeHead(200, {"Content-Type": "image/svg+xml"});
+    res.end(svg);
+  }
 });
 
 app.get("/colors", function(req, res){
