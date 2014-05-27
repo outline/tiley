@@ -1,4 +1,4 @@
-module.exports = {
+var self = {
 
   hsv2rgb: function(obj) {
     var h = obj.h;
@@ -30,19 +30,19 @@ module.exports = {
     switch(i) {
       case 0:
         r = v; g = t; b = p;
-        break;
+      break;
       case 1:
         r = q; g = v; b = p;
-        break;
+      break;
       case 2:
         r = p; g = v; b = t;
-        break;
+      break;
       case 3:
         r = p; g = q; b = v;
-        break;
+      break;
       case 4:
         r = t; g = p; b = v;
-        break;
+      break;
       default: // case 5:
         r = v; g = p; b = q;
     }
@@ -60,6 +60,18 @@ module.exports = {
     res += this.hexComponentToString(obj.g)
     res += this.hexComponentToString(obj.b)
     return res
+  },
+
+  palette: function(size, seed, s, v){
+    var result = []
+    var goldenRatioConjugate = 0.618033988749895
+    for (var i = 0; i < size ; i++) {
+      seed += goldenRatioConjugate;
+      seed %= 1;
+      result[i] = self.rgb2hexString(self.hsv2rgb({h:(360 * seed), s:s, v:v}));
+    }
+    return result;
   }
 
 }
+module.exports = self

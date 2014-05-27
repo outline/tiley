@@ -1,53 +1,37 @@
 var express = require('express');
-var raphael = require('node-raphael');
+var morgan  = require('morgan')
 var colors = require('./colors.js');
+var argv = require('minimist')(process.argv.slice(2));
+
+var size = parseInt(argv['size'] || 26);
+var s = parseFloat(argv['s'] || 0.8);
+var v = parseFloat(argv['v'] || 0.8);
+var seed = parseFloat(argv['seed'] || 0.8);
+var defaultPalette = colors.palette(size, seed, s, v)
+
 
 var app = express();
+app.set('view engine', 'ejs');
+app.use(morgan())
 
-var palette = []
-var s = 0.8;
-var v = 0.8
-var goldenRatioConjugate = 0.618033988749895
-
-var seed = 50
-
-for (var i = 0; i < 26 ; i++) {
-  seed += goldenRatioConjugate;
-  seed %= 1;
-  palette[i] = colors.rgb2hexString(colors.hsv2rgb({h:(360 * seed), s:s, v:v}));
-}
-
-var generateSqwigitar = function(color, text){
-  var svg = raphael.generate(100, 100, function draw(paper) { 
-    var rect = paper.rect(0, 0, 100, 100);
-    rect.attr("fill", color);
-    rect.attr("stroke", color);
-    var t = paper.text(50, 68, text);
-    t.attr({ "font-size": 61, "font-family": "Arial, Helvetica, sans-serif", "fill":"#fff" });
-  });
-  return svg;
-}
-
-app.get('/avatar/:id/:initials', function(req, res){
-  var id = parseInt(req.params.id)
-  if(isNaN(id)){
-    res.status(400)
-    res.end('Bad request')
-  }else{
-    var color = palette[id % palette.length] 
-    var initials = req.params.initials.toUpperCase();
-    var svg = generateSqwigitar(color, initials.substring(0,2))
-
-    res.writeHead(200, {"Content-Type": "image/svg+xml"});
-    res.end(svg);
-  }
+app.get('/avatar/:id(\\d+)/:initials(\\w{1,2})', function(req, res){
+  var color = defaultPalette[req.params.id % defaultPalette.length] 
+  var initials = req.params.initials.toUpperCase();
+  res.setHeader("Content-Type", "image/svg+xml");
+  res.render('svg', { color:color, text:initials })
 });
 
 app.get("/colors", function(req, res){
-  palette.forEach(function(color){
-    res.write('<div style="width:100px;height:100px;background-color:' + color  + '"></div>')
-  })
+  res.render('colors', { palette:defaultPalette })
 })
 
-console.log('Sqwiggle Avatars listening on port 3005')
+app.get('/', function(req, res){
+  res.render('home')
+})
+
+console.log('Sqwiggle Avatars Listening On Port 3005')
+console.log('Default Palette Size: ' + size)
+console.log('Default Seed Value: ' + seed)
+console.log('Default Saturation Value: ' + s)
+console.log('Default Hue Value: ' + v)
 app.listen(3005);
