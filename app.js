@@ -3,6 +3,7 @@ var morgan  = require('morgan')
 var colors = require('./colors.js');
 var argv = require('minimist')(process.argv.slice(2));
 
+var port = parseInt(argv['port'] || 3004);
 var size = parseInt(argv['size'] || 26);
 var s = parseFloat(argv['s'] || 0.8);
 var v = parseFloat(argv['v'] || 0.8);
@@ -29,9 +30,9 @@ app.get('/', function(req, res){
   res.render('home')
 })
 
-console.log('Sqwiggle Avatars Listening On Port 3005')
+console.log('Sqwiggle Avatars Listening On Port: ' + port)
 console.log('Default Palette Size: ' + size)
 console.log('Default Seed Value: ' + seed)
 console.log('Default Saturation Value: ' + s)
 console.log('Default Hue Value: ' + v)
-app.listen(3005);
+app.listen(port);
