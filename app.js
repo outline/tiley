@@ -3,7 +3,7 @@ var morgan  = require('morgan')
 var colors = require('./colors.js');
 var argv = require('minimist')(process.argv.slice(2));
 
-var port = parseInt(argv['port'] || 3004);
+var port = process.env.PORT || parseInt(argv['port'] || 3004);
 var size = parseInt(argv['size'] || 26);
 var s = parseFloat(argv['s'] || 0.8);
 var v = parseFloat(argv['v'] || 0.8);
