@@ -15,7 +15,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(morgan())
 
-app.get('/avatar/:id(\\d+)/:initials(\\w{1,2})', function(req, res){
+app.get('/avatar/:id(\\d+)/:initials(\\w{1,2}).svg', function(req, res){
   var color = defaultPalette[req.params.id % defaultPalette.length] 
   var initials = req.params.initials.toUpperCase();
   res.setHeader("Content-Type", "image/svg+xml");
