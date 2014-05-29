@@ -35,8 +35,8 @@ app.get('/avatar/:id(\\d+)/:initials(\\w{1,2}).png', function(req, res){
   fill(color).
   drawRectangle(0.0,100,100).
   fill('#fff').
-  font('fixtures/cabin-regular.ttf', 40).
-  drawText(0, 0, initials, 'Center').
+  font('fixtures/opensans-regular.ttf', 40).
+  drawText(-1, -5, initials, 'Center').
   stream(function (err, stdout, stderr) {
     if (err) return next(err);
     stdout.pipe(res); 
