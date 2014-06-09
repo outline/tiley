@@ -15,7 +15,7 @@ var defaultPalette = colors.palette(size, seed, s, v)
 var initials = function(source){
   var result;
   result = source.toUpperCase();
-  result = hepburn.cleanRomaji(result);
+  // result = hepburn.cleanRomaji(result); this messes up western strings
   result = hepburn.fromKana(result);
   result = result.substring(0,2);
   return result;
