@@ -1,7 +1,7 @@
 {
-  "name": "sqwiggle-avatars",
+  "name": "tiley",
   "version": "0.0.1",
-  "description": "Avatar generator for Sqwiggle",
+  "description": "Avatar generator by Sqwiggle",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
