@@ -67,7 +67,7 @@ app.get('/', function(req, res){
   res.render('home')
 })
 
-console.log('Sqwiggle Avatars Listening On Port: ' + port)
+console.log('Tiley Listening On Port: ' + port)
 console.log('Default Palette Size: ' + size)
 console.log('Default Seed Value: ' + seed)
 console.log('Default Saturation Value: ' + s)
