@@ -47,7 +47,7 @@ app.get('/avatar/:id(\\d+)/:initials(\\w{1,2}).svg', function(req, res){
 });
 
 app.get('/avatar/:id(\\d+)/:initials.:format(png|jpg)', function(req, res){
-  var size = 100;
+  var size = parseInt(req.query.s, 10) || 100;
   var color = defaultPalette[req.params.id % defaultPalette.length];
   var font = 'fixtures/opensans-semibold.ttf';
   var text = initials(req.params.initials);
