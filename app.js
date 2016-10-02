@@ -42,7 +42,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 
-app.get('/avatar/:id(\\w+)/:initials(\\w{1,2}).svg', function(req, res) {
+app.get('/avatar/:id(\\w+)/:initials.svg', function(req, res) {
   var color = idToColor(req.params.id);
   var text = initials(req.params.initials);
 
@@ -51,7 +51,7 @@ app.get('/avatar/:id(\\w+)/:initials(\\w{1,2}).svg', function(req, res) {
   res.render('svg', { color: color, text: text })
 });
 
-app.get('/avatar/:id(\\w+)/:initials(\\w{1,2}).:format(png|jpg)', function(req, res) {
+app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', function(req, res) {
   var color = idToColor(req.params.id);
   var font = 'fixtures/opensans-semibold.ttf';
   var text = initials(req.params.initials);
