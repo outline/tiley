@@ -1,8 +1,15 @@
-# Tiley [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+# Tiley
 
 An alternative to Gravatar avatars that's quick and easy to use.
 
-### Getting Started
+## Installation
+
+You can run your own copy of tiley easily on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/tommoor/tiley)
+
+
+## Development
 
 Clone the repository to a local directory.
 
