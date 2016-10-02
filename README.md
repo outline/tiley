@@ -1,4 +1,4 @@
-# Tiley
+# Tiley [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 An alternative to Gravatar avatars that's quick and easy to use.
 
