@@ -11,12 +11,17 @@ You can run your own copy of tiley easily on Heroku:
 
 ## Development
 
-Clone the repository to a local directory.
+Tiley depends on imageMagick, on OSX you can install it using Homebrew:
 
-Run `npm install`
+```
+brew install imagemagick
+```
 
-This will pull in the dependencies, then you have a simple command:
+On Heroku it's already installed and on linux you should use your package manager of choice.
 
-`node app.js`
+```
+npm install
+npm start
+```
 
-This will begin a process on port 3004 by default, so navigate to "localhost:3004" to finish off and wind up with a running Tiley.
+This will begin a process on port 3004 by default, so navigate to "http://localhost:3004" to finish off and wind up with a running Tiley.

@@ -1,19 +1,20 @@
 {
-  "name": "tiley",
-  "version": "0.0.1",
-  "description": "Avatar generator by Sqwiggle",
+  "name": "Tiley",
+  "version": "0.1.0",
+  "description": "An alternative to Gravatar avatars that's quick and easy to use",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "BSD-2-Clause",
+  "license": "MIT License",
   "dependencies": {
     "express": "~4.2.0",
     "ejs": "~0.7.1",
     "minimist": "~0.1.0",
-    "morgan": "~1.1.1",
-    "gm": "~1.16.0",
-    "hepburn": "~0.5.2"
+    "morgan": "~1.7.0",
+    "gm": "~1.23.0",
+    "hepburn": "~1.0.0"
   }
 }
