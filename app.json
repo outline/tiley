@@ -1,0 +1,6 @@
+{
+  "name": "Tiley",
+  "description": "An alternative to Gravatar avatars that's quick and easy to use.",
+  "repository": "https://github.com/tommoor/tiley",
+  "keywords": ["node", "express", "static"]
+}
