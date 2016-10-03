@@ -1,4 +1,4 @@
-# Tiley
+# Tiley [![CircleCI](https://circleci.com/gh/tommoor/tiley.svg?style=svg)](https://circleci.com/gh/tommoor/tiley)
 
 An alternative to the default Gravatar's that is quick and easy to use. Tiley creates consistent colored squares with initials that can be used for default avatars, they look like this:
 
@@ -33,7 +33,7 @@ By default, images are presented at 100px by 100px if no size parameter is suppl
 
 ## Hosting
 
-We recommend running your own instance of Tiley, however there is an instance running on the Heroku free plan at https://tiley.herokuapp.com that you are welcome to use for low traffic applications. 
+We recommend running your own instance of Tiley, however there is an instance running on the Heroku free plan at https://tiley.herokuapp.com that you are welcome to use for low traffic applications.
 
 The best way to use Tiley is to pass the url as the default parameter when constructing a [gravatar url](https://en.gravatar.com/site/implement/images/) - this means that you can show your users gravatar if it's available and then fallback to a tiley. It would look something like this (don't forget to URL encode):
 
