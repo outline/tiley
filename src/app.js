@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 
 app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
-  var color = idToColor(req.params.id);
+  var color = req.query.c ? '#' + req.query.c : idToColor(req.params.id);
   var font = 'src/fonts/opensans-semibold.ttf';
   var text = initials(req.params.initials);
   var format = req.params.format;
