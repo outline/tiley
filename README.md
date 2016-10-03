@@ -2,12 +2,12 @@
 
 An alternative to the default Gravatar's that is quick and easy to use. Tiley creates consistent colored squares with initials that can be used for default avatars, they look like this:
 
-![TM](https://tiley.herokuapp.com/avatar/123/TM.svg)
-![JB](https://tiley.herokuapp.com/avatar/456/JB.svg)
-![LR](https://tiley.herokuapp.com/avatar/789/LR.svg)
-![FL](https://tiley.herokuapp.com/avatar/000/FL.svg)
-![KT](https://tiley.herokuapp.com/avatar/999/KT.svg)
-![KT](https://tiley.herokuapp.com/avatar/073/VB.svg)
+![TM](https://tiley.herokuapp.com/avatar/123/TM.png)
+![JB](https://tiley.herokuapp.com/avatar/456/JB.png)
+![LR](https://tiley.herokuapp.com/avatar/789/LR.png)
+![FL](https://tiley.herokuapp.com/avatar/000/FL.png)
+![KT](https://tiley.herokuapp.com/avatar/999/KT.png)
+![KT](https://tiley.herokuapp.com/avatar/073/VB.png)
 
 
 ## How to use
