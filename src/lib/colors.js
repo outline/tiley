@@ -47,7 +47,7 @@ var self = {
         r = v; g = p; b = q;
     }
     return {r:Math.round(r * 255), g:Math.round(g * 255), b:Math.round(b * 255)};
-  }, 
+  },
 
   hexComponentToString: function componentToHex(c) {
     var hex = c.toString(16);
