@@ -28,10 +28,10 @@ File formats available are `png`, `svg` and `jpg`. We recommend using `svg` if p
 
 By default, images are presented at 100px by 100px if no size parameter is supplied. You may request a specific image size by using the s= parameter and passing a single pixel dimension (since the images are square):
 
-`https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/TM.svg?s=500`
+`https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/TM.png?s=500`
 
 
-### Hosting
+## Hosting
 
 We recommend running your own instance of Tiley, however there is an instance running on the Heroku free plan at https://tiley.herokuapp.com that you are welcome to use for low traffic applications. 
 
