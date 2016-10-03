@@ -2,9 +2,9 @@ var express = require('express');
 var morgan  = require('morgan');
 var crypto  = require('crypto');
 var gm      = require('gm'), imageMagick = gm.subClass({ imageMagick: true });
-var colors  = require('./colors.js');
 var hepburn = require('hepburn');
 var argv    = require('minimist')(process.argv.slice(2));
+var colors  = require('./lib/colors');
 
 var port    = process.env.PORT || parseInt(argv['port'] || 3004);
 var size    = parseInt(argv['size'] || 26);
@@ -22,10 +22,7 @@ var initials = function(text) {
 var generateImage = function(size, color, font, text, format) {
   const scale = size/100;
 
-  return imageMagick('fixtures/blank.png')
-  .resize(size, size)
-  .fill(color)
-  .drawRectangle(0, 0, size, size)
+  return imageMagick(size, size, color)
   .fill('#fff')
   .font(font, Math.round(scale * 55))
   .drawText(-1, -3, text, 'Center')
@@ -39,10 +36,11 @@ var idToColor = function(id) {
 }
 
 var app = express();
+app.set('views', 'src/views');
 app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 
-app.get('/avatar/:id(\\w+)/:initials.svg', function(req, res) {
+app.get('/avatar/:id(\\w+)/:initials.:format(svg)?', function(req, res) {
   var color = idToColor(req.params.id);
   var text = initials(req.params.initials);
 
@@ -53,7 +51,7 @@ app.get('/avatar/:id(\\w+)/:initials.svg', function(req, res) {
 
 app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', function(req, res) {
   var color = idToColor(req.params.id);
-  var font = 'fixtures/opensans-semibold.ttf';
+  var font = 'src/fonts/opensans-semibold.ttf';
   var text = initials(req.params.initials);
   var format = req.params.format;
   var size = parseInt(req.query.s, 10) || 100;
@@ -66,12 +64,12 @@ app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', function(req, res) {
 });
 
 app.get('/colors', function(req, res){
-  res.render('colors', { palette: palette });
-})
+  res.json({palette: palette});
+});
 
 app.get('/', function(req, res){
-  res.render('home');
-})
+  res.json({status: 'okay'});
+});
 
 console.log('Tiley Listening On Port: ' + port);
 console.log('Default Palette Size: ' + size);
