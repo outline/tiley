@@ -73,9 +73,9 @@ app.get('/', (req, res) => {
 });
 
 console.log(`Tiley Listening On Port: ${port}`);
-console.log(`Default Palette Size: ${size}`);
-console.log(`Default Seed Value: ${seed}`);
-console.log(`Default Saturation Value: ${s}`);
-console.log(`Default Hue Value: ${v}`);
+console.log(`Palette Size: ${size}`);
+console.log(`Seed Value: ${seed}`);
+console.log(`Saturation Value: ${s}`);
+console.log(`Hue Value: ${v}`);
 
 app.listen(port);
