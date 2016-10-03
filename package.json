@@ -16,5 +16,10 @@
     "morgan": "~1.7.0",
     "gm": "~1.23.0",
     "hepburn": "~1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.0"
   }
 }

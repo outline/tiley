@@ -17,23 +17,23 @@ var initials = function(text) {
   return hepburn
   .fromKana(text.toUpperCase())
   .substring(0,2);
-}
+};
 
 var generateImage = function(size, color, font, text, format) {
-  const scale = size/100;
+  var scale = size/100;
 
   return imageMagick(size, size, color)
   .fill('#fff')
   .font(font, Math.round(scale * 55))
   .drawText(-1, -3, text, 'Center')
-  .setFormat(format)
-}
+  .setFormat(format);
+};
 
 var idToColor = function(id) {
   var idAsHex = crypto.createHash('md5').update(id).digest('hex');
   var idAsNumber = parseInt(idAsHex, 16);
   return palette[idAsNumber % palette.length];
-}
+};
 
 var app = express();
 app.set('views', 'src/views');
@@ -46,10 +46,10 @@ app.get('/avatar/:id(\\w+)/:initials.:format(svg)?', function(req, res) {
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Vary', 'Accept-Encoding');
-  res.render('svg', { color: color, text: text })
+  res.render('svg', { color: color, text: text });
 });
 
-app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', function(req, res) {
+app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', function(req, res, next) {
   var color = idToColor(req.params.id);
   var font = 'src/fonts/opensans-semibold.ttf';
   var text = initials(req.params.initials);
@@ -57,7 +57,7 @@ app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', function(req, res) {
   var size = parseInt(req.query.s, 10) || 100;
 
   res.set('Content-Type', 'image/' + format);
-  generateImage(size, color, font, text, format).stream(function(err, stdout, stderr) {
+  generateImage(size, color, font, text, format).stream(function(err, stdout) {
     if (err) return next(err);
     stdout.pipe(res);
   });
