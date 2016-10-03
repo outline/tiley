@@ -7,14 +7,37 @@ An alternative to the default Gravatar's that is quick and easy to use. Tiley cr
 ![LR](https://tiley.herokuapp.com/avatar/789/LR.svg)
 ![FL](https://tiley.herokuapp.com/avatar/000/FL.svg)
 ![KT](https://tiley.herokuapp.com/avatar/999/KT.svg)
+![KT](https://tiley.herokuapp.com/avatar/073/VB.svg)
+
 
 ## How to use
 
+### Basic Request
+
+Tiley images may be requested just like a normal image, using an IMG tag. To ensure that tiley always returns the same color for a user you must pass a unique identifier - we recommend a hash of the users email address or a database id. The second parameter is the users initials which must be 1 or 2 letters:
+
+`https://tiley.herokuapp.com/avatar/HASH/INITIALS.FORMAT`
+
+For example:
+
+`https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/TM.svg`
+
+File formats available are `png`, `svg` and `jpg`. We recommend using `svg` if possible.
+
+#### Size
+
+By default, images are presented at 100px by 100px if no size parameter is supplied. You may request a specific image size by using the s= parameter and passing a single pixel dimension (since the images are square):
+
+`https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/TM.svg?s=500`
+
+
+### Hosting
+
 We recommend running your own instance of Tiley, however there is an instance running on the Heroku free plan at https://tiley.herokuapp.com that you are welcome to use for low traffic applications. 
 
-The best way to use Tiley is to pass the url as the default parameter when constructing a gravatar url - this means that you can show your users gravatar if it's available and then fallback to a tiley. It would look something like this (don't forget to URL encode):
+The best way to use Tiley is to pass the url as the default parameter when constructing a [gravatar url](https://en.gravatar.com/site/implement/images/) - this means that you can show your users gravatar if it's available and then fallback to a tiley. It would look something like this (don't forget to URL encode):
 
-`https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200?d=https%3A%2F%2Ftiley.herokuapp.com%2Favatar%2F205e460b479e2e5b48aec07710c08d50.svg%3Fs%3D200`
+`https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200&d=https%3A%2F%2Ftiley.herokuapp.com%2Favatar%2F205e460b479e2e5b48aec07710c08d50/TM.svg%3Fs%3D200`
 
 
 ## Installation
