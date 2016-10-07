@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var initials = require('./lib/initials');
 var generateImage = require('./lib/generateImage');
+var generateFontSize = require('./lib/generateFontSize');
 var idToColor = require('./lib/idToColor');
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -29,10 +30,12 @@ app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
 app.get('/avatar/:id(\\w+)/:initials.:format(svg)?', (req, res) => {
   var color = idToColor(req.params.id);
   var text = initials(req.params.initials);
+  var imageSize = parseInt(req.query.s, 10) || 100;
+  var fontSize = generateFontSize(imageSize);
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Vary', 'Accept-Encoding');
-  res.render('svg', { color, text });
+  res.render('svg', { color, text, imageSize, fontSize });
 });
 
 app.get('/', (req, res) => {

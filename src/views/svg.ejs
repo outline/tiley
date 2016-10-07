@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100">
-  <rect x="0" y="0" width="100" height="100" style="fill:<%= color %>"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="<%= imageSize %>" height="<%= imageSize %>">
+  <rect x="0" y="0" width="<%= imageSize %>" height="<%= imageSize %>" style="fill:<%= color %>"/>
   <defs>
     <style>
       @font-face {
@@ -10,7 +10,7 @@
       }
     </style>
   </defs>
-  <text x="50" y="50" style="alignment-baseline:middle;text-anchor:middle;fill:#fff;font-weight:bold;font-family:Open Sans;font-size:55px;">
+  <text x="<%= imageSize * 0.5 %>" y="<%= imageSize * 0.5 %>" style="alignment-baseline:middle;text-anchor:middle;fill:#fff;font-weight:bold;font-family:Open Sans;font-size:<%= fontSize %>px;">
     <%= text %>
   </text>
 </svg>
