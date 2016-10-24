@@ -14,28 +14,30 @@ app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 
 app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
-  var color = idToColor(req.params.id);
+  var fontColor = req.query.c ? '#' + req.query.c : '#fff';
+  var backgroundColor = idToColor(req.params.id);
   var font = 'src/fonts/opensans-semibold.ttf';
   var text = initials(req.params.initials);
   var format = req.params.format;
   var imageSize = parseInt(req.query.s, 10) || 100;
 
   res.set('Content-Type', `image/${format}`);
-  generateImage(imageSize, color, font, text, format).stream((err, stdout) => {
+  generateImage(imageSize, backgroundColor, fontColor, font, text, format).stream((err, stdout) => {
     if (err) return next(err);
     return stdout.pipe(res);
   });
 });
 
 app.get('/avatar/:id(\\w+)/:initials.:format(svg)?', (req, res) => {
-  var color = idToColor(req.params.id);
+  var fontColor = req.query.c ? '#' + req.query.c : '#fff';
+  var backgroundColor = idToColor(req.params.id);
   var text = initials(req.params.initials);
   var imageSize = parseInt(req.query.s, 10) || 100;
   var fontSize = generateFontSize(imageSize);
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Vary', 'Accept-Encoding');
-  res.render('svg', { color, text, imageSize, fontSize });
+  res.render('svg', { backgroundColor, fontColor, text, imageSize, fontSize });
 });
 
 app.get('/', (req, res) => {
