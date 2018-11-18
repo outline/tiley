@@ -58,8 +58,8 @@ brew install imagemagick
 On Heroku it's already installed and on linux you should use your package manager of choice.
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 This will begin a process on port 3004 by default, so navigate to "http://localhost:3004" to access the tiley instance.
