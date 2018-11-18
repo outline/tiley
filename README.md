@@ -30,6 +30,10 @@ By default, images are presented at 100px by 100px if no size parameter is suppl
 
 `https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/TM.png?s=500`
 
+#### Color
+ By default, image background colors are dynamically generated using the unique identifier. You may request a specific background color by using the c= parameter and passing a hex value without the "#" symbol:
+ `https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/JK.png?c=DADB0D`
+
 
 ## Hosting
 
