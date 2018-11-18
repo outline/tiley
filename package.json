@@ -1,6 +1,6 @@
 {
   "name": "tiley",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An alternative to Gravatar avatars that's attractive and easy to use",
   "main": "src/app.js",
   "scripts": {
@@ -10,12 +10,12 @@
   "author": "Tom Moor <tom.moor@gmail.com>",
   "license": "MIT License",
   "dependencies": {
-    "express": "4.16.4",
     "ejs": "2.6.1",
-    "minimist": "~0.1.0",
-    "morgan": "~1.7.0",
+    "express": "4.16.4",
     "gm": "~1.23.0",
-    "hepburn": "~1.0.0"
+    "hepburn": "~1.0.0",
+    "minimist": "~0.1.0",
+    "morgan": "~1.7.0"
   },
   "devDependencies": {
     "eslint": "^3.7.0",
