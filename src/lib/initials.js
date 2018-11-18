@@ -1,4 +1,4 @@
-var hepburn = require('hepburn');
+const hepburn = require('hepburn');
 
 function initials(text) {
   return hepburn

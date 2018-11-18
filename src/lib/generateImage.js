@@ -1,7 +1,7 @@
-var gm = require('gm');
-var generateFontSize = require('./generateFontSize');
+const gm = require('gm');
+const generateFontSize = require('./generateFontSize');
 
-var imageMagick = gm.subClass({ imageMagick: true });
+const imageMagick = gm.subClass({ imageMagick: true });
 
 function generateImage(imageSize, color, font, text, format) {
   return imageMagick(imageSize, imageSize, color)

@@ -2,9 +2,9 @@
   "name": "tiley",
   "version": "1.0.0",
   "description": "An alternative to Gravatar avatars that's attractive and easy to use",
-  "main": "src/app.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/index.js",
     "test": "jest"
   },
   "author": "Tom Moor <tom.moor@gmail.com>",
