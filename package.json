@@ -19,7 +19,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "eslint": "^3.7.0",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
