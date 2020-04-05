@@ -15,7 +15,7 @@
     "express": "4.16.4",
     "gm": "~1.23.0",
     "hepburn": "~1.0.0",
-    "minimist": "~1.2.2",
+    "minimist": "~1.2.3",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
