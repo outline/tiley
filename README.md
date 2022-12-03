@@ -37,7 +37,7 @@ https://tiley.herokuapp.com/avatar/205e460b479e2e5b48aec07710c08d50/TM.png?s=500
 
 ## Hosting
 
-We recommend running your own instance of Tiley, however there is an instance running on the Heroku free plan at https://tiley.herokuapp.com that you are welcome to use for low traffic applications.
+We recommend running your own instance of Tiley, ~however there is an instance running on the Heroku free plan at https://tiley.herokuapp.com that you are welcome to use for low traffic applications~. This instance will be shut down soon due to Heroku free plans ending.
 
 The best way to use Tiley is to pass the url as the default parameter when constructing a [gravatar url](https://en.gravatar.com/site/implement/images/) - this means that you can show your users gravatar if it's available and then fallback to a tiley. It would look something like this (don't forget to URL encode):
 
